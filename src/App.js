@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { createAction } from "./common"
 
 function App() {
+  console.log(createAction())
   return (
     <div className="App">
       <header className="App-header">
