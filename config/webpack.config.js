@@ -25,6 +25,7 @@ const ForkTsCheckerWebpackPlugin =
     ? require('react-dev-utils/ForkTsCheckerWarningWebpackPlugin')
     : require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const WebpackBundleAnalyzer = require("webpack-bundle-analyzer")
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
 
@@ -199,6 +200,8 @@ module.exports = function (webpackEnv) {
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
     entry: paths.appIndexJs,
+    // For `useBuiltIns: entry`
+    // entry: [ "core-js/stable", paths.appIndexJs],
     output: {
       // The build folder.
       path: paths.appBuild,
@@ -744,6 +747,11 @@ module.exports = function (webpackEnv) {
               }),
             },
           },
+        }),
+        new WebpackBundleAnalyzer.BundleAnalyzerPlugin({
+          openAnalyzer: false,
+          analyzerMode: "static",
+          reportFilename: "stats.html",
         }),
     ].filter(Boolean),
     // Turn off performance processing because we utilize

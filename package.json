@@ -134,7 +134,16 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      ["@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "loose": true
+      }]
     ]
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }
