@@ -1,11 +1,11 @@
 import { getDeviceId } from "."
 
-const createAction = () => {
-    return getDeviceId()
+const createAction = (data) => {
+ return data.includes("love") ? 'includes love' : getDeviceId()
 }
 
 export default {
-  get: 1,
+  get: (data) => { return 1 },
   a:2,
 }
 

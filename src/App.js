@@ -3,7 +3,7 @@ import './App.css';
 import { createAction } from "./common"
 
 function App() {
-  console.log(createAction())
+  let ca1 = createAction([])
   return (
     <div className="App">
       <header className="App-header">
@@ -11,6 +11,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>{ca1}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
